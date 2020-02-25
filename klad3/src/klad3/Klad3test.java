@@ -56,11 +56,26 @@ class Klad3test {
 		assert resultpointdouble.getX() == 6;
 		assert resultpointdouble.getY()== 8;
 		
+		IntPoint point1 = new IntPoint(2,4);
+		IntPoint point2 = new IntPoint(2,5);
+		IntPoint point3 = new IntPoint(2,8);
 		IntPoint resultpointint = new IntPoint(0,0);
 		
 		resultpointint = myPoint.round();
-		assert resultpointint.getX()==3;
+		assert resultpointint.getX()==2;
 		assert resultpointint.getY()==4;
+		
+		assert point1.equals(point2)== false;
+		assert point1.equals(resultpointint)==true;
+		
+		IntVector resultvectorint = new IntVector(0,0);
+		
+		resultvectorint = point1.minus(point2);
+		assert resultvectorint.getX()==0;
+		assert resultvectorint.getY()==-1;
+		
+		assert point2.isOnLineSegment​(point1,point3)==true;
+		assert point1.isOnLineSegment(point1,point3)==false;
 		
 		
 	}
